@@ -1,8 +1,9 @@
 class Event:
-    def __init__ (self, eventID, eventLocation, category):
+    def __init__ (self, eventID, eventLocation, category, fees):
         self._eventID = eventID       
-        self._category = category
         self._eventLocation = Event.setEventLocation(self, eventLocation)
+        self._category = category
+        self._fees = fees
     
     def getEventID(self):
         return self._eventID
@@ -21,8 +22,8 @@ class Event:
         except ValueError as error:
             print("Exception: ", error)
             return eventLocation
-    def calculateEventFee(self, eventFee):
-        return eventFee * 1.135
+    def calculateEventFee(self):
+        return self._fees * 1.135
     
 #testing    
 event = Event (1, 'g5', 'yes')

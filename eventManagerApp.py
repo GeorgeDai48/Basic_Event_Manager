@@ -5,17 +5,30 @@ def run():
     print ("Event Manager - [George Dai]")
     eventsCollection = []
     def addReg():
-        ventID = input ('Please enter the event ID: ')
+        eventID = input ('Please enter the event ID: ')
         eventLocation = input ('Please enter the event location: ')
         category = input ('Please enter the event category: ')
-        event = Event(eventID, eventLocation, category)
+        while True:
+            fees = input ('please enter the event fees: ')
+            if fees.replace('.','').isnumeric():
+                break
+            print ('please enter a positive numeric value: ')
+            
+        event = Event(eventID, eventLocation, category, fees)
         print ('Event added')
+        eventsCollection.append (event)
     def addSpec():
         eventID = input ('Please enter the special event ID: ')
         eventLocation = input ('Please enter the special event location: ')
         category = input ('Please enter the special event category: ')
-        event = SpecialEvent(eventID, eventLocation, category)
+        while True:
+            vipFees = input ('please enter the special event fees: ')
+            if vipFees.replace('.','').isnumeric():
+                break
+            print ('please enter a positive numeric value: ')
+        specEvent = SpecialEvent(eventID, eventLocation, category, vipFees)
         print ('Special event added')
+        eventsCollection.append (specEvent)
     def calc():
         fees = input ('Please enter the fees for the regular event: ')
         specfees = input ('Please enter the fees for the special event: ')
@@ -27,18 +40,18 @@ def run():
         
     while True:
         selection = input ('''Select what you would like to do:
-"addr" to add a regular event
-"adds" to add a special event
-"calc" to calculate event fees for all events
-"exit" to exit the app
+"1" to add a regular event
+"2" to add a special event
+"3" to calculate event fees for all events
+"4" to exit the app
 ''')
-        if selection == 'addr':
+        if selection == '1':
             addReg()
-        elif selection == 'adds':
+        elif selection == '2':
             addSpec()
-        elif selection == 'calc':
+        elif selection == '3':
             calc()
-        elif selection == 'exit':
+        elif selection == '4':
             print ('Exiting the app')
             exit()
         else:
