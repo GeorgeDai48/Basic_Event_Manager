@@ -23,9 +23,10 @@ class Event:
             print("Exception: ", error)
             return eventLocation
     def calculateEventFee(self):
-        return self._fees * 1.135
-    
+        return float(self._fees) * 1.135
+'''   
 #testing    
 event = Event (1, 'g5', 'yes')
 print (event.getEventLocation())
 print (event.getEventID())
+'''

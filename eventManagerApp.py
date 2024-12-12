@@ -30,8 +30,6 @@ def run():
         print ('Special event added')
         eventsCollection.append (specEvent)
     def calc():
-        fees = input ('Please enter the fees for the regular event: ')
-        specfees = input ('Please enter the fees for the special event: ')
         totFees = 0
         for events in eventsCollection:
             totFees += events.calculateEventFee()
@@ -50,7 +48,8 @@ def run():
         elif selection == '2':
             addSpec()
         elif selection == '3':
-            calc()
+            totFees = calc()
+            print (f'The total fees are: {totFees}')
         elif selection == '4':
             print ('Exiting the app')
             exit()
