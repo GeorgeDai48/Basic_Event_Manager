@@ -18,8 +18,12 @@ def run():
             print ('please enter a positive numeric value: ')
             
         event = Event(eventID, eventLocation, category, fees)
-        print ('Event added')
-        eventsCollection.append (event)
+        #handles if the event location name is not a valid input
+        if event.getEventLocation() == 0:
+            print('Event location not valid, event not added.')
+        else:
+            print ('Event added')
+            eventsCollection.append (event)
     #add special event function
     def addSpec():
         eventID = input ('Please enter the special event ID: ')
@@ -78,9 +82,6 @@ def run():
             print ('Input not recognized')
             continue
                            
-    
-
-
 
 
 run()

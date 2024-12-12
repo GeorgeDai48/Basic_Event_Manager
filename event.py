@@ -26,6 +26,6 @@ class Event:
                 return eventLocation
         except ValueError as error:
             print("Exception: ", error)
-            return eventLocation
+            return 0
     def calculateEventFee(self):
         return float(self._fees) * 1.135
