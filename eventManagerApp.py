@@ -4,6 +4,27 @@ from specialEvent import SpecialEvent
 def run():
     print ("Event Manager - [George Dai]")
     eventsCollection = []
+    def addReg():
+        ventID = input ('Please enter the event ID: ')
+        eventLocation = input ('Please enter the event location: ')
+        category = input ('Please enter the event category: ')
+        event = Event(eventID, eventLocation, category)
+        print ('Event added')
+    def addSpec():
+        eventID = input ('Please enter the special event ID: ')
+        eventLocation = input ('Please enter the special event location: ')
+        category = input ('Please enter the special event category: ')
+        event = SpecialEvent(eventID, eventLocation, category)
+        print ('Special event added')
+    def calc():
+        fees = input ('Please enter the fees for the regular event: ')
+        specfees = input ('Please enter the fees for the special event: ')
+        totFees = 0
+        for events in eventsCollection:
+            totFees += events.calculateEventFee()
+        return totFees
+
+        
     while True:
         selection = input ('''Select what you would like to do:
 "addr" to add a regular event
@@ -24,19 +45,9 @@ def run():
             print ('Input not recognized')
             continue
                            
-def addReg():
-    eventID = input ('Please enter the event ID: ')
-    eventLocation = input ('Please enter the event location: ')
-    category = input ('Please enter the event category: ')
-    event = Event(eventID, eventLocation, category)
-    print ('Event added')
-def addSpec():
-    eventID = input ('Please enter the special event ID: ')
-    eventLocation = input ('Please enter the special event location: ')
-    category = input ('Please enter the special event category: ')
-    event = SpecialEvent(eventID, eventLocation, category)
-    print ('Special event added')
-def calc():
-    fees = input ('Please enter the fees for the regular event: ')
-    specfees
+    
+
+
+
+
 run()
