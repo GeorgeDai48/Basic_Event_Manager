@@ -1,6 +1,6 @@
 from event import Event
 from specialEvent import SpecialEvent
-
+import csv
 def run():
     print ("Event Manager - [George Dai]")
     eventsCollection = []
@@ -35,6 +35,11 @@ def run():
             totFees += events.calculateEventFee()
         return totFees
 
+    def saveDataToFile():
+        with open ('events.csv','w', newline='') as file:
+            writer = csv.writer (file)
+            for event in eventsCollection:
+                writer.writerow ([event.getEventID(), event.getEventLocation(), event.getCategory(), event.getFees()])
         
     while True:
         selection = input ('''Select what you would like to do:
@@ -51,6 +56,7 @@ def run():
             totFees = calc()
             print (f'The total fees are: {totFees}')
         elif selection == '4':
+            saveDataToFile()
             print ('Exiting the app')
             exit()
         else:

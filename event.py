@@ -11,6 +11,8 @@ class Event:
         return self._eventLocation
     def getCategory(self):
         return self._category
+    def getFees(self):
+        return self._fees
     def setEventLocation(self, eventLocation):
         try:
             if eventLocation == '':

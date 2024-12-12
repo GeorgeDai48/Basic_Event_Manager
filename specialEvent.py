@@ -6,5 +6,6 @@ class SpecialEvent(Event):
         self._vipFees = vipFees
     def calculateEventFee(self):
         return float(self._vipFees) * 1.135
-
+    def getFees(self):
+        return self._vipFees
 
