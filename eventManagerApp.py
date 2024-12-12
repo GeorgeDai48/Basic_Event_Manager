@@ -1,5 +1,5 @@
-import event
-import specialEvent
+from event import Event
+from specialEvent import SpecialEvent
 
 def run():
     print ("Event Manager - [George Dai]")
@@ -12,11 +12,11 @@ def run():
 "exit" to exit the app
 ''')
         if selection == 'addr':
-            pass
+            addReg()
         elif selection == 'adds':
-            pass
+            addSpec()
         elif selection == 'calc':
-            pass
+            calc()
         elif selection == 'exit':
             print ('Exiting the app')
             exit()
@@ -24,7 +24,19 @@ def run():
             print ('Input not recognized')
             continue
                            
-
-
-
+def addReg():
+    eventID = input ('Please enter the event ID: ')
+    eventLocation = input ('Please enter the event location: ')
+    category = input ('Please enter the event category: ')
+    event = Event(eventID, eventLocation, category)
+    print ('Event added')
+def addSpec():
+    eventID = input ('Please enter the special event ID: ')
+    eventLocation = input ('Please enter the special event location: ')
+    category = input ('Please enter the special event category: ')
+    event = SpecialEvent(eventID, eventLocation, category)
+    print ('Special event added')
+def calc():
+    fees = input ('Please enter the fees for the regular event: ')
+    specfees
 run()
