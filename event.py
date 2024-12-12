@@ -1,3 +1,4 @@
+#regular event class
 class Event:
     def __init__ (self, eventID, eventLocation, category, fees):
         self._eventID = eventID       
@@ -5,6 +6,7 @@ class Event:
         self._category = category
         self._fees = fees
     
+    #getters
     def getEventID(self):
         return self._eventID
     def getEventLocation(self):
@@ -13,6 +15,7 @@ class Event:
         return self._category
     def getFees(self):
         return self._fees
+    #event location setter
     def setEventLocation(self, eventLocation):
         try:
             if eventLocation == '':
@@ -26,9 +29,3 @@ class Event:
             return eventLocation
     def calculateEventFee(self):
         return float(self._fees) * 1.135
-'''   
-#testing    
-event = Event (1, 'g5', 'yes')
-print (event.getEventLocation())
-print (event.getEventID())
-'''
